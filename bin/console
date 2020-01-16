@@ -9,6 +9,9 @@ require "cli_dinosaur"
 # (If you use this, don't forget to add pry to your Gemfile!)
 # require "pry"
 # Pry.start
+require 'rest-client'
+require 'json'
+require 'pry'
 
 require "irb"
 IRB.start(__FILE__)
