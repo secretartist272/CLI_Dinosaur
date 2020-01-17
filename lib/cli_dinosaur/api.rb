@@ -10,8 +10,6 @@ require_relative './dinosaur'
 class DinosaurCli::API 
     BASE_URL = "https://dinosaur-facts-api.shultzlab.com/"
 
-    
-
   def self.get_all_dinosaurs
     response = RestClient.get("https://dinosaur-facts-api.shultzlab.com/dinosaurs")
     dinosaur_array = JSON.parse(response.body) ["results"]

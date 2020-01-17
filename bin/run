@@ -1,4 +1,4 @@
 #!/usr/bin/env ruby
 require_relative "../lib/environment"
 
-DinosaurCli.new.start
+DinosaurCli::CLI.new.start

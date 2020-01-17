@@ -25,7 +25,7 @@ class DinosaurCli::CLI
             sub_menu_options
         elsif user_input.downcase == "exit"
             goodbye
-        begin
+        else
             invalid_choice
             main_menu_options
         end
