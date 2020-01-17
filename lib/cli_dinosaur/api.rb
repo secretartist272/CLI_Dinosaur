@@ -13,12 +13,10 @@ class DinosaurCli::API
 
   def self.get_all_dinosaurs
     response = RestClient.get("https://dinosaur-facts-api.shultzlab.com/dinosaurs")
-    # binding.pry
     dinosaur_array = JSON.parse(response.body) 
 
     dinosaur_array.each do |dinosaur|
       DinosaurCli::Dinosaur.new(dinosaur)
-      # binding.pry
     end
   end
 end
