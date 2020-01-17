@@ -1,4 +1,4 @@
-class DinosaurCli::Dinosaur
+class DinosaurCli::Dinosaur 
     attr_accessor :name, :description
 
     @@all = []

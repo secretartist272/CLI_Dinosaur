@@ -1,4 +1,4 @@
-require_relative './api'
+
 require_relative './dinosaur'
 require 'pry'
 
@@ -20,13 +20,7 @@ class DinosaurCli::CLI
         puts "Type '2' to exit program"
         main_menu_input
     end
-
-    def sub_menu_options
-        puts "Type the number of the dinosaur you would like to learn about."
-        puts "Type 'exit' to exit the program"
-        sub_menu_input
-    end
-
+    
     def main_menu_input
         user_input = gets.strip
 
@@ -39,6 +33,12 @@ class DinosaurCli::CLI
             invalid_choice
             main_menu_options
         end
+    end
+
+    def sub_menu_options
+        puts "Type the number of the dinosaur you would like to learn about."
+        puts "Type 'exit' to exit the program"
+        sub_menu_input
     end
 
     def sub_menu_input

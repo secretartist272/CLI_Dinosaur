@@ -12,11 +12,11 @@ class DinosaurCli::API
     BASE_URL = "https://dinosaur-facts-api.shultzlab.com"
 
   def self.get_all_dinosaurs
-    response = RestClient.get("https://dinosaur-facts-api.shultzlab.com/dinosaurs")
+    response = RestClient.get("https://dinosaur-facts-api.shultzlab.com")
     dinosaur_array = JSON.parse(response.body) ["results"]
 
     dinosaur_array.each do |dinosaur|
-        Dinosaur.new(dinosaur)
+      DinosaurCli::Dinosaur.new(dinosaur)
     end
   end
 end
