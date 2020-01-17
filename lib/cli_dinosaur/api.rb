@@ -8,7 +8,7 @@ require_relative './dinosaur'
 
 # this functionality should be wrapped into a class
 class DinosaurCli::API 
-    BASE_URL = "https://dinosaur-facts-api.shultzlab.com/"
+    BASE_URL = "https://dinosaur-facts-api.shultzlab.com"
 
   def self.get_all_dinosaurs
     response = RestClient.get("https://dinosaur-facts-api.shultzlab.com/dinosaurs")

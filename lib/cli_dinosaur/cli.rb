@@ -1,3 +1,6 @@
+require_relative './api'
+require_relative './dinosaur'
+
 class DinosaurCli::CLI
     def start
         system('clear') 
@@ -5,7 +8,7 @@ class DinosaurCli::CLI
         puts "Welcome to the Dinosaur-aus!"
         puts "Loading all your Dinosaurs..."
 
-        DinosaurCli::API.new.get_all_dinosaurs
+        DinosaurCli::API.new
 
         puts "Calling All Dinosaurs"
         main_menu_options
@@ -13,8 +16,14 @@ class DinosaurCli::CLI
 
     def main_menu_options
         puts "Type '1' for a list of dinosaurs"
-        put "Type '2' to exit program"
+        puts "Type '2' to exit program"
         main_menu_input
+    end
+
+    def sub_menu_options
+        puts "Type the number of the dinosaur you would like to learn about."
+        puts "Type 'exit' to exit the program"
+        sub_menu_input
     end
 
     def main_menu_input
@@ -32,7 +41,7 @@ class DinosaurCli::CLI
     end
 
     def sub_menu_input
-        user_input = get.strip
+        user_input = gets.strip
 
         if user_input.to_i.between?(1, DinosaurCli::Dinosaur.all.length)
             dinosaur = DinosaurCli::Dinosaur.all[user_input.to_i -1]
