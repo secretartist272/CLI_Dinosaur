@@ -32,7 +32,7 @@ class DinosaurCli::CLI
         if user_input == "1"
             list_dinosaurs
             sub_menu_options
-        elsif user_input.downcase == "exit"
+        elsif user_input == "2"
             goodbye
         else
             invalid_choice
@@ -47,7 +47,7 @@ class DinosaurCli::CLI
             dinosaur = DinosaurCli::Dinosaur.all[user_input.to_i -1]
             print_dinosaur_information(dinosaur)
             continue?
-        elsif user_input.downcase == "exit"
+        elsif user_input == "exit"
             goodbye
         else 
             invalid_choice
@@ -80,15 +80,16 @@ class DinosaurCli::CLI
             goodbye
         else
             invalid_choice
-            continue?
         end
+        continue?
     end
 
     def invalid_choice
-        puts "Be careful that T-rex will get you. Let's try that again!"
+        puts "RAAWR means I love you in Dinosaur. So, so let's try that again!"
     end
 
     def goodbye
-        puts "Have a wonderful day. Come visit us dinosaurs again, soon!"
+        puts "Just remember, always be yourself, unless you can be a Dinosaur and then in that case, ALWAYS BE A DINOSAUR!"
+        puts "Now your out the door, Dinosaur!"
     end
 end
