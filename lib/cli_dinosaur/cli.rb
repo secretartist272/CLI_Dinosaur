@@ -7,11 +7,14 @@ class DinosaurCli::CLI
         system('clear') 
 
         puts "Welcome to the Dinosaur-aus!"
+        puts " "
         puts "Loading all your Dinosaurs..."
 
-        DinosaurCli::API.new
+        DinosaurCli::API.get_all_dinosaurs
 
+        puts " "
         puts "Calling All Dinosaurs"
+        puts " "
         main_menu_options
     end
 
@@ -26,11 +29,13 @@ class DinosaurCli::CLI
 
         if user_input == "1"
             list_dinosaurs
+            puts " "
             sub_menu_options
         elsif user_input == "2"
             goodbye
         else
             invalid_choice
+            puts " "
             main_menu_options
         end
     end
@@ -45,8 +50,10 @@ class DinosaurCli::CLI
         user_input = gets.strip
 
         if user_input.to_i.between?(1, DinosaurCli::Dinosaur.all.length)
-            dinosaur = DinosaurCli::Dinosaur.all[user_input.to_i -1]
+            dinosaur = DinosaurCli::Dinosaur.all[user_input.to_i - 1]
+            puts " "
             print_dinosaur_information(dinosaur)
+            puts " "
             continue?
         elsif user_input == "exit"
             goodbye
@@ -81,8 +88,9 @@ class DinosaurCli::CLI
             goodbye
         else
             invalid_choice
+            continue?
         end
-        continue?
+        
     end
 
     def invalid_choice

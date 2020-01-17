@@ -5,12 +5,12 @@ class DinosaurCli::Dinosaur
 
     def initialize(attr_hash)
         attr_hash.each do |key, value|
-            self.send("#{key}=", value) if self.respond_to?("#{key}=")
+            self.send("#{key.downcase}=", value) if self.respond_to?("#{key.downcase}=")
           end
-          self.save  
+         save  
     end
 
-    def self.save
+    def save
         @@all << self
     end
 
