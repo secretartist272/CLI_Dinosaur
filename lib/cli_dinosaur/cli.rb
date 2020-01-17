@@ -32,7 +32,7 @@ class DinosaurCli::CLI
         if user_input == "1"
             list_dinosaurs
             sub_menu_options
-        elsif user_input == "2"
+        elsif user_input == "exit"
             goodbye
         else
             invalid_choice
@@ -56,8 +56,8 @@ class DinosaurCli::CLI
     end
 
     def list_dinosaurs
-        DinosaurCli::Dinosaur.all.each.with_index(1) do |dinosaur, d|
-            puts "#{d}. #{dinosaur.name}"
+        DinosaurCli::Dinosaur.all.each.with_index(1) do |dinosaur, i|
+            puts "#{i}. #{dinosaur.name}"
         end
     end
 
