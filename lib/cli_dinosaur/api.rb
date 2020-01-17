@@ -1,4 +1,4 @@
-# require_relative './dinosaur'
+require_relative './dinosaur'
  
 # I know I want a bunch of information about dinosaurs
 # I will use the information to make DinosaurCliApi::Dinosaur Objects! And "persist"
