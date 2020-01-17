@@ -1,6 +1,4 @@
 class DinosaurCli::Dinosaur
-    # BASE_URL = "https://dinosaur-facts-api.shultzlab.com/"
-
     attr_accessor :name, :description
 
     @@all = []
