@@ -1,3 +1,5 @@
+require 'pry'
+
 class DinosaurCli::Dinosaur 
     attr_accessor :name, :description
 
@@ -17,5 +19,18 @@ class DinosaurCli::Dinosaur
     def self.all
       @@all 
     end
+
+    def self.find_by_name(name)
+      # search through all the dinos...
+      # if there is a dino whose name matches the incoming argument, return that instance of Dinosaur
+      # if there are no matches, return nil
+      # ideally, the search would be case-insensitive
+      @@all.find  do |dinosaur| 
+        dinosaur.name == name
+        binding.pry
+      end
+      
+
+    end  
 
 end

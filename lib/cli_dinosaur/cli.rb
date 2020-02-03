@@ -1,4 +1,3 @@
-
 require_relative './dinosaur'
 require 'pry'
 
