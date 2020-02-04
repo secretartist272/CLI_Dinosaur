@@ -1,5 +1,6 @@
 require 'pry'
 
+
 class DinosaurCli::Dinosaur 
     attr_accessor :name, :description
 
@@ -26,11 +27,7 @@ class DinosaurCli::Dinosaur
       # if there are no matches, return nil
       # ideally, the search would be case-insensitive
       @@all.find  do |dinosaur| 
-        dinosaur.name == name
-        binding.pry
+        dinosaur.name == name.cascmp(name2)
       end
-      
-
-    end  
-
+    end
 end
