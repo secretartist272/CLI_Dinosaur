@@ -27,7 +27,7 @@ class DinosaurCli::Dinosaur
       # if there are no matches, return nil
       # ideally, the search would be case-insensitive
       @@all.find  do |dinosaur| 
-        dinosaur.name == name.cascmp(name2)
+        dinosaur.name.downcase == name.downcase
       end
     end
 end

@@ -47,7 +47,8 @@ class DinosaurCli::CLI
         puts "                  Loading all your Dinosaurs..."
 
         DinosaurCli::API.get_all_dinosaurs
-
+        
+        
         puts "                  Calling All Dinosaurs"
         puts " "
         main_menu_options
@@ -55,7 +56,8 @@ class DinosaurCli::CLI
 
     def main_menu_options
         puts "                  Type '1' for a list of dinosaurs"
-        puts "                  Type '2' to exit program"
+        puts "                  Type '2' for a Dinosaur name search"
+        puts "                  Type '3' to exit program"
         main_menu_input
     end
     
@@ -67,9 +69,13 @@ class DinosaurCli::CLI
             puts " "
             sub_menu_options
         elsif user_input == "2"
+            search_options
+            puts " "
+            dinosaur_search
+        elsif user_input == "3"
             goodbye
         else
-            invalid_choice
+            invalid_choice_a
             puts " "
             main_menu_options
         end
@@ -93,7 +99,7 @@ class DinosaurCli::CLI
         elsif user_input == "exit"
             goodbye
         else 
-            invalid_choice
+            invalid_choice_b
             sub_menu_options
         end
     end
@@ -112,7 +118,8 @@ class DinosaurCli::CLI
     def continue?
         puts "                  Type '1' for main menu"
         puts "                  Type '2' to select a new Dinosaur"
-        puts "                  Type '3' to exit Dinosaur-aus"
+        puts "                  Type '3' to search your Dinosaur by name"
+        puts "                  Type '4' to exit Dinosaur-aus"
 
         user_input = gets.strip
 
@@ -122,21 +129,56 @@ class DinosaurCli::CLI
             list_dinosaurs
             sub_menu_options
         elsif user_input == "3"
+            search_options
+            dinosaur_search
+        elsif user_input == "4"
             goodbye
         else
-            invalid_choice
+            invalid_choice_c
             puts ""
             continue?
         end
         
     end
 
-    def invalid_choice
+    def invalid_choice_a
         puts "                  RAAWR means I love you in Dinosaur. So, so let's try that again!"
+    end
+
+    def invalid_choice_b
+        puts "                 My arms are little, but my hugs are big! What kind of Dinosaur could I be?"
+    end
+
+    def invalid_choice_c
+        puts "                A T-rex has short arems so that everything it holds is close to its heart!"
+    end
+
+    def invalid_choice_d
+        puts "                      Don't lose your Dinosaur!"
     end
 
     def goodbye
         puts "Just remember, always be yourself, unless you can be a Dinosaur and then in that case, ALWAYS BE A DINOSAUR!"
         puts "      Now your out the door, Dinosaur!"
+    end
+
+    def dinosaur_search
+        user_input = gets.strip
+        
+        dino = DinosaurCli::Dinosaur.find_by_name(user_input) 
+        
+        #if we find a dinosaur 
+        if dino 
+            # show the user dinosaur
+            print_dinosaur_information(dino)
+        else 
+            invalid_choice_d
+        end
+        continue?
+
+    end
+
+    def search_options
+        puts "Write your dinosaur name right here! "
     end
 end
