@@ -4,4 +4,4 @@ require_relative "../lib/environment"
 
 
 
-DinosaurCli::CLI.new.start
+CliDinosaur::CLI.new.start

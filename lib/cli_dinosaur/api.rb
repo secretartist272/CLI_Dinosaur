@@ -8,7 +8,7 @@ require 'pry'
 #getting the info...
 
 # this functionality should be wrapped into a class
-class DinosaurCli::API 
+class CliDinosaur::API 
     BASE_URL = "https://dinosaur-facts-api.shultzlab.com"
 
   def self.get_all_dinosaurs
@@ -16,7 +16,7 @@ class DinosaurCli::API
     dinosaur_array = JSON.parse(response.body) 
 
     dinosaur_array.each do |dinosaur|
-      DinosaurCli::Dinosaur.new(dinosaur)
+      CliDinosaur::Dinosaur.new(dinosaur)
     end
   end
 end

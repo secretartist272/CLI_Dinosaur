@@ -1,7 +1,7 @@
 require 'pry'
 
 
-class DinosaurCli::Dinosaur 
+class CliDinosaur::Dinosaur 
     attr_accessor :name, :description
 
     @@all = []

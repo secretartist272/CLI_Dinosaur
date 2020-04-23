@@ -1,7 +1,7 @@
 require_relative './dinosaur'
 require 'pry'
 
-class DinosaurCli::CLI
+class CliDinosaur::CLI
     def start
         system('clear') 
 
@@ -46,7 +46,7 @@ class DinosaurCli::CLI
  
         puts "                  Loading all your Dinosaurs..."
 
-        DinosaurCli::API.get_all_dinosaurs
+        CliDinosaur::API.get_all_dinosaurs
         
         
         puts "                  Calling All Dinosaurs"
